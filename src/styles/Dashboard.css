@@ -190,6 +190,12 @@
   margin-bottom: 0.5rem;
 }
 
+.metric-icon-component {
+  font-size: 2rem;
+  color: #1dbf73;
+  margin-bottom: 0.5rem;
+}
+
 .metric-value {
   font-size: 1.25rem;
   font-weight: 600;
@@ -229,6 +235,12 @@
 
 .progress-icon {
   font-size: 1.5rem;
+  min-width: 2rem;
+}
+
+.progress-icon-component {
+  font-size: 1.5rem;
+  color: #1dbf73;
   min-width: 2rem;
 }
 

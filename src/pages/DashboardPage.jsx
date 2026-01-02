@@ -8,7 +8,6 @@ import MedicationTracker from "../Components/MedicationTracker";
 import AppointmentScheduler from "../Components/AppointmentScheduler";
 import MedicalReports from "../Components/MedicalReports";
 import WomensHealth from "../Components/WomensHealth";
-import AIDoctorAssistant from "../Components/AIDoctorAssistant";
 import "../styles/Dashboard.css";
 
 const DashboardPage = () => {

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaChartBar, FaClipboard, FaHeartbeat, FaDumbbell, FaBell, FaBook, FaRobot, FaSignOutAlt } from 'react-icons/fa';
+import { MdAssignmentInd } from 'react-icons/md';
 import '../styles/Sidebar.css';
 
 const Sidebar = ({ onSelectSection, activeSection }) => {
@@ -23,14 +25,14 @@ const Sidebar = ({ onSelectSection, activeSection }) => {
   }, []);
 
   const menuItems = [
-    { icon: '📊', label: 'Dashboard', id: 'dashboard' },
-    { icon: '📋', label: 'Smart Health Records', id: 'records' },
-    { icon: '❤️', label: 'Personalized Care', id: 'care' },
-    { icon: '💪', label: 'Body Hacking & Fitness', id: 'fitness' },
-    { icon: '👩‍⚕️', label: "Women's Health", id: 'womens' },
-    { icon: '🔔', label: 'Reminders & Alerts', id: 'reminders' },
-    { icon: '📚', label: 'Learning & Community', id: 'learning' },
-    { icon: '🤖', label: 'AI Doctor Assistant', id: 'ai-assistant' },
+    { icon: <FaChartBar />, label: 'Dashboard', id: 'dashboard' },
+    { icon: <FaClipboard />, label: 'Smart Health Records', id: 'records' },
+    { icon: <FaHeartbeat />, label: 'Personalized Care', id: 'care' },
+    { icon: <FaDumbbell />, label: 'Body Hacking & Fitness', id: 'fitness' },
+    { icon: <MdAssignmentInd />, label: "Women's Health", id: 'womens' },
+    { icon: <FaBell />, label: 'Reminders & Alerts', id: 'reminders' },
+    { icon: <FaBook />, label: 'Learning & Community', id: 'learning' },
+    { icon: <FaRobot />, label: 'AI Doctor Assistant', id: 'ai-assistant' },
   ];
 
   const handleLogout = () => {
@@ -84,15 +86,16 @@ const Sidebar = ({ onSelectSection, activeSection }) => {
             <span className="menu-label">{item.label}</span>
           </button>
         ))}
+        
+        <button
+          onClick={handleLogout}
+          className="menu-item logout-item"
+          style={{ marginTop: 'auto' }}
+        >
+          <span className="menu-icon"><FaSignOutAlt /></span>
+          <span className="menu-label">Logout</span>
+        </button>
       </nav>
-
-      <button
-        onClick={handleLogout}
-        className="btn btn-secondary"
-        style={{ marginTop: 'auto' }}
-      >
-        Logout
-      </button>
     </aside>
   );
 };

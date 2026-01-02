@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaHeartbeat, FaTint, FaWeight, FaDna, FaWalking } from 'react-icons/fa';
 import '../styles/Dashboard.css';
 
 const Dashboard = () => {
@@ -13,28 +14,28 @@ const Dashboard = () => {
   }, []);
   const healthMetrics = [
     {
-      icon: '❤️',
+      icon: <FaHeartbeat className="metric-icon-component" />,
       label: 'Blood Pressure',
       value: '120/80',
       status: 'normal',
       color: '#10b981'
     },
     {
-      icon: '🩸',
+      icon: <FaTint className="metric-icon-component" />,
       label: 'Blood Sugar',
       value: '95 mg/dL',
       status: 'normal',
       color: '#10b981'
     },
     {
-      icon: '⚖️',
+      icon: <FaWeight className="metric-icon-component" />,
       label: 'BMI',
       value: '22.5',
       status: 'normal',
       color: '#10b981'
     },
     {
-      icon: '🧬',
+      icon: <FaDna className="metric-icon-component" />,
       label: 'Cholesterol',
       value: '180 mg/dL',
       status: 'good',
@@ -44,14 +45,14 @@ const Dashboard = () => {
 
   const progressItems = [
     {
-      icon: '💧',
+      icon: <FaTint className="progress-icon-component" />,
       label: 'glasses',
       current: 7,
       goal: 8,
       percentage: 88
     },
     {
-      icon: '🚶',
+      icon: <FaWalking className="progress-icon-component" />,
       label: 'steps',
       current: 12500,
       goal: 10000,

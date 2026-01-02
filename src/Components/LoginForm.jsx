@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaUser, FaEnvelope, FaBirthdayCake, FaLock, FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa";
+import { MdAssignmentInd } from "react-icons/md";
 import "../styles/LoginForm.css";
 
 const API_BASE_URL = "http://localhost:5000/api";
@@ -172,7 +174,7 @@ const LoginForm = () => {
               <div className="form-field">
                 <label htmlFor="fullName" className="form-label">Full Name</label>
                 <div className="input-wrapper">
-                  <span className="input-icon">👤</span>
+                  <FaUser className="input-icon" />
                   <input
                     id="fullName"
                     type="text"
@@ -190,7 +192,7 @@ const LoginForm = () => {
             <div className="form-field">
               <label htmlFor="email" className="form-label">Email Address</label>
               <div className="input-wrapper">
-                <span className="input-icon">✉️</span>
+                <FaEnvelope className="input-icon" />
                 <input
                   id="email"
                   type="email"
@@ -208,7 +210,7 @@ const LoginForm = () => {
               <div className="form-field">
                 <label htmlFor="age" className="form-label">Age</label>
                 <div className="input-wrapper">
-                  <span className="input-icon">🎂</span>
+                  <FaBirthdayCake className="input-icon" />
                   <input
                     id="age"
                     type="number"
@@ -229,7 +231,7 @@ const LoginForm = () => {
               <div className="form-field">
                 <label htmlFor="gender" className="form-label">Gender</label>
                 <div className="input-wrapper">
-                  <span className="input-icon">⚧️</span>
+                  <MdAssignmentInd className="input-icon" />
                   <select
                     id="gender"
                     value={gender}
@@ -249,7 +251,7 @@ const LoginForm = () => {
             <div className="form-field">
               <label htmlFor="password" className="form-label">Password</label>
               <div className="input-wrapper">
-                <span className="input-icon">🔒</span>
+                <FaLock className="input-icon" />
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
@@ -264,7 +266,7 @@ const LoginForm = () => {
                   className="password-toggle"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? "�" : "👁️"}
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
               {isSignUp && (
@@ -277,7 +279,7 @@ const LoginForm = () => {
               <div className="form-field">
                 <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
                 <div className="input-wrapper">
-                  <span className="input-icon">🔒</span>
+                  <FaLock className="input-icon" />
                   <input
                     id="confirmPassword"
                     type="password"
@@ -291,24 +293,6 @@ const LoginForm = () => {
               </div>
             )}
 
-            {/* Terms and Conditions (Sign Up only) */}
-            {isSignUp && (
-              <div className="form-field checkbox-field">
-                <label className="checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={agreedToTerms}
-                    onChange={(e) => setAgreedToTerms(e.target.checked)}
-                    className="checkbox-input"
-                  />
-                  <span>
-                    I agree to the{" "}
-                    <a href="#" className="link">Terms of Service</a> and{" "}
-                    <a href="#" className="link">Privacy Policy</a>
-                  </span>
-                </label>
-              </div>
-            )}
 
             {/* Submit Button */}
             <button 
@@ -348,23 +332,23 @@ const LoginForm = () => {
         <h2 className="features-title">What you'll get with MedSage:</h2>
         <ul className="features-list">
           <li className="feature-item">
-            <span className="feature-icon">✅</span>
+            <FaCheckCircle className="feature-icon" />
             <span>AI-powered health insights</span>
           </li>
           <li className="feature-item">
-            <span className="feature-icon">✅</span>
+            <FaCheckCircle className="feature-icon" />
             <span>Personalized care recommendations</span>
           </li>
           <li className="feature-item">
-            <span className="feature-icon">✅</span>
+            <FaCheckCircle className="feature-icon" />
             <span>Smart symptom checker</span>
           </li>
           <li className="feature-item">
-            <span className="feature-icon">✅</span>
+            <FaCheckCircle className="feature-icon" />
             <span>Health progress tracking</span>
           </li>
           <li className="feature-item">
-            <span className="feature-icon">✅</span>
+            <FaCheckCircle className="feature-icon" />
             <span>Expert community access</span>
           </li>
         </ul>

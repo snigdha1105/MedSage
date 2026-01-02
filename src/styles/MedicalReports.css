@@ -1,0 +1,313 @@
+/* Medical Reports */
+.medical-reports {
+  padding: 30px 40px;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #9C27B0 0%, #6A1B9A 100%);
+  border-radius: 0;
+}
+
+.medical-reports h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.tab-navigation {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  margin-bottom: -3px;
+}
+
+.tab-btn:hover {
+  color: white;
+}
+
+.tab-btn.active {
+  color: white;
+  border-bottom-color: white;
+}
+
+.medical-reports .form-section {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.medical-reports .form-section h3 {
+  color: #9C27B0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.submit-btn.full-width {
+  grid-column: 1 / -1;
+}
+
+.medical-reports .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.medical-reports label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.medical-reports input,
+.medical-reports textarea,
+.medical-reports select {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.medical-reports input[type="file"] {
+  padding: 12px;
+  border: 2px dashed #9C27B0;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f8f9fa;
+  transition: all 0.3s;
+}
+
+.medical-reports input[type="file"]:hover {
+  border-color: #6A1B9A;
+  background: #f0e6f6;
+}
+
+.medical-reports input[type="file"]:focus {
+  outline: none;
+  border-color: #6A1B9A;
+  background: #f0e6f6;
+}
+
+.file-info {
+  margin-top: 10px;
+  color: #4CAF50;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.error-text {
+  color: #f44336;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.report-file {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.medical-reports input:focus,
+.medical-reports textarea:focus,
+.medical-reports select:focus {
+  outline: none;
+  border-color: #9C27B0;
+  box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.1);
+}
+
+.medical-reports textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.submit-btn {
+  background-color: #1dbf73;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(29, 191, 115, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #16a857;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(29, 191, 115, 0.4);
+}
+
+.submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.reports-list {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.reports-list h3 {
+  color: #9C27B0;
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.report-card {
+  background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-left: 5px solid #9C27B0;
+}
+
+.report-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(156, 39, 176, 0.2);
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 15px;
+}
+
+.report-card h4 {
+  color: #6A1B9A;
+  margin: 0;
+  font-size: 18px;
+}
+
+.report-type-badge {
+  display: inline-block;
+  background: #9C27B0;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.report-meta {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.report-meta p {
+  color: #555;
+  margin: 5px 0;
+  font-size: 13px;
+}
+
+.report-content {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 3px solid #9C27B0;
+}
+
+.report-content p {
+  color: #555;
+  margin: 0;
+  font-size: 13px;
+}
+
+.content-preview {
+  font-style: italic;
+  color: #777;
+  margin-top: 5px !important;
+}
+
+.report-notes {
+  background: #fff9c4;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.report-notes p {
+  color: #555;
+  margin: 0;
+  font-size: 13px;
+}
+
+.delete-btn {
+  width: 100%;
+  background: #f44336;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.delete-btn:hover {
+  background: #da190b;
+  transform: scale(1.02);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: #999;
+}
+
+.empty-state p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.empty-state small {
+  color: #bbb;
+}

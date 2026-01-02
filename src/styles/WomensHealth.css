@@ -1,0 +1,531 @@
+/* Women's Health */
+.womens-health {
+  padding: 30px 40px;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+  border-radius: 0;
+}
+
+.womens-health h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.womens-health .tab-navigation {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.womens-health .tab-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  margin-bottom: -3px;
+}
+
+.womens-health .tab-btn:hover {
+  color: white;
+}
+
+.womens-health .tab-btn.active {
+  color: white;
+  border-bottom-color: white;
+}
+
+.womens-health .form-section {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.womens-health .form-section h3 {
+  color: #E91E63;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.womens-health .form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.womens-health .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.womens-health .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.womens-health .form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.womens-health .form-group input[type="date"],
+.womens-health .form-group input[type="time"],
+.womens-health .form-group select,
+.womens-health .form-group textarea {
+  padding: 10px 12px;
+  border: 2px solid #E91E63;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.womens-health .form-group input[type="date"]:focus,
+.womens-health .form-group input[type="time"]:focus,
+.womens-health .form-group select:focus,
+.womens-health .form-group textarea:focus {
+  outline: none;
+  border-color: #C2185B;
+  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+}
+
+.womens-health .form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.womens-health .severity-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.womens-health .range-slider {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #FFE0B2, #E91E63);
+  outline: none;
+}
+
+.womens-health .range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #E91E63;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
+  transition: all 0.3s;
+}
+
+.womens-health .range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.5);
+}
+
+.womens-health .range-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #E91E63;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
+  transition: all 0.3s;
+}
+
+.womens-health .range-slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.5);
+}
+
+.womens-health .severity-display {
+  font-weight: 700;
+  color: #E91E63;
+  font-size: 16px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.womens-health .submit-btn {
+  grid-column: 1 / -1;
+  padding: 12px 32px;
+  background-color: #1dbf73;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.womens-health .submit-btn:hover:not(:disabled) {
+  background-color: #16a857;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(29, 191, 115, 0.4);
+}
+
+.womens-health .submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.womens-health .info-section {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  border-left: 5px solid #E91E63;
+  margin-top: 30px;
+}
+
+.womens-health .history-section {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.womens-health .history-section h3 {
+  color: #E91E63;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.womens-health .history-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.womens-health .history-tab-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  margin-bottom: -2px;
+}
+
+.womens-health .history-tab-btn:hover {
+  color: #E91E63;
+}
+
+.womens-health .history-tab-btn.active {
+  color: #E91E63;
+  border-bottom-color: #E91E63;
+}
+
+.womens-health .data-display {
+  padding: 15px 0;
+}
+
+.womens-health .records-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.womens-health .record-card {
+  background: linear-gradient(135deg, #FFF5F7 0%, #FCE4EC 100%);
+  border: 2px solid #E91E63;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.womens-health .record-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(233, 30, 99, 0.2);
+}
+
+.womens-health .record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(233, 30, 99, 0.2);
+  padding-bottom: 10px;
+}
+
+.womens-health .record-header h4 {
+  color: #E91E63;
+  margin: 0;
+  font-size: 16px;
+}
+
+.womens-health .record-date,
+.womens-health .severity-badge {
+  background: #E91E63;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.womens-health .record-content {
+  color: #555;
+  line-height: 1.6;
+}
+
+.womens-health .record-content p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.womens-health .record-content strong {
+  color: #E91E63;
+}
+
+.womens-health .record-notes {
+  background: #FFF9C4;
+  border-left: 4px solid #FBC02D;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+.womens-health .severity-bar {
+  background: #f0f0f0;
+  height: 8px;
+  border-radius: 4px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.womens-health .severity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF9800, #E91E63);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.womens-health .empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.womens-health .empty-state p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.womens-health .info-section h3 {
+  color: #E91E63;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.womens-health .info-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.womens-health .info-section li {
+  padding: 8px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.womens-health .empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.womens-health .empty-state p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .womens-health {
+    padding: 20px;
+  }
+
+  .womens-health h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .womens-health .tab-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .womens-health .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .womens-health .severity-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.womens-health .form-section {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.womens-health .form-section h3 {
+  color: #E91E63;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.submit-btn.full-width {
+  grid-column: 1 / -1;
+}
+
+.womens-health .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.womens-health label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.womens-health input,
+.womens-health textarea,
+.womens-health select {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.womens-health input:focus,
+.womens-health textarea:focus,
+.womens-health select:focus {
+  outline: none;
+  border-color: #E91E63;
+  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+}
+
+.womens-health textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.womens-health input[type="range"] {
+  width: calc(100% - 50px);
+  margin-right: 10px;
+}
+
+.womens-health .form-group span {
+  color: #E91E63;
+  font-weight: 500;
+}
+
+.womens-health button {
+  background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.womens-health button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.womens-health button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.womens-health .info-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 5px solid #E91E63;
+  margin-top: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.womens-health .info-section h3 {
+  color: #E91E63;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.womens-health .info-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.womens-health .info-section li {
+  color: #555;
+  margin: 12px 0;
+  padding-left: 25px;
+  position: relative;
+  font-size: 14px;
+}
+
+.womens-health .info-section li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #E91E63;
+  font-weight: bold;
+  font-size: 16px;
+}

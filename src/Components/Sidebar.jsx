@@ -1,0 +1,100 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/Sidebar.css';
+
+const Sidebar = ({ onSelectSection, activeSection }) => {
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState('User');
+  const [userInitials, setUserInitials] = useState('U');
+
+  useEffect(() => {
+    // Get user data from localStorage
+    const fullName = localStorage.getItem('full_name');
+    if (fullName) {
+      setUserName(fullName);
+      // Get initials from full name
+      const initials = fullName
+        .split(' ')
+        .map(part => part.charAt(0).toUpperCase())
+        .join('')
+        .slice(0, 2);
+      setUserInitials(initials);
+    }
+  }, []);
+
+  const menuItems = [
+    { icon: '📊', label: 'Dashboard', id: 'dashboard' },
+    { icon: '📋', label: 'Smart Health Records', id: 'records' },
+    { icon: '❤️', label: 'Personalized Care', id: 'care' },
+    { icon: '💪', label: 'Body Hacking & Fitness', id: 'fitness' },
+    { icon: '👩‍⚕️', label: "Women's Health", id: 'womens' },
+    { icon: '🔔', label: 'Reminders & Alerts', id: 'reminders' },
+    { icon: '📚', label: 'Learning & Community', id: 'learning' },
+    { icon: '🤖', label: 'AI Doctor Assistant', id: 'ai-assistant' },
+  ];
+
+  const handleLogout = () => {
+    // Clear authentication data from localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('full_name');
+    localStorage.removeItem('email');
+    // Redirect to login page
+    navigate('/', { replace: true });
+  };
+
+  const handleMenuClick = (id) => {
+    if (onSelectSection) {
+      onSelectSection(id);
+    }
+  };
+
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-header">
+        <div className="logo">
+          <img src="/logo.svg" alt="MedSage" className="logo-icon-img" />
+          <span className="logo-text">MedSage</span>
+        </div>
+      </div>
+
+      <div className="user-profile">
+        <div className="user-avatar">{userInitials}</div>
+        <div className="user-info">
+          <h3>{userName}</h3>
+          <p>Active • Lucknow, Uttar Pradesh</p>
+        </div>
+      </div>
+
+      <div className="health-score">
+        <p className="score-label">Health Score</p>
+        <div className="score-value">87%</div>
+        <div className="score-bar">
+          <div className="score-fill" style={{ width: '87%' }}></div>
+        </div>
+      </div>
+
+      <nav className="sidebar-menu">
+        {menuItems.map((item) => (
+          <button
+            key={item.id}
+            className={`menu-item ${activeSection === item.id ? 'active' : ''}`}
+            onClick={() => handleMenuClick(item.id)}
+          >
+            <span className="menu-icon">{item.icon}</span>
+            <span className="menu-label">{item.label}</span>
+          </button>
+        ))}
+      </nav>
+
+      <button
+        onClick={handleLogout}
+        className="btn btn-secondary"
+        style={{ marginTop: 'auto' }}
+      >
+        Logout
+      </button>
+    </aside>
+  );
+};
+
+export default Sidebar;

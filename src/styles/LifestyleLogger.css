@@ -1,0 +1,267 @@
+/* Lifestyle Logger */
+.lifestyle-logger {
+  padding: 30px 40px;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 0;
+}
+
+.lifestyle-logger h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.tab-navigation {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  margin-bottom: -3px;
+}
+
+.tab-btn:hover {
+  color: white;
+}
+
+.tab-btn.active {
+  color: white;
+  border-bottom-color: white;
+}
+
+.log-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1000px) {
+  .log-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lifestyle-logger .form-section {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.lifestyle-logger .form-section h3 {
+  color: #667eea;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.lifestyle-logger .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.lifestyle-logger label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.unit {
+  color: #999;
+  font-size: 13px;
+  font-weight: 500;
+  min-width: 45px;
+}
+
+.lifestyle-logger input,
+.lifestyle-logger textarea,
+.lifestyle-logger select {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.lifestyle-logger input:focus,
+.lifestyle-logger textarea:focus,
+.lifestyle-logger select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.lifestyle-logger textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.submit-btn {
+  background-color: #1dbf73;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(29, 191, 115, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #16a857;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(29, 191, 115, 0.4);
+}
+
+.submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Summary Section */
+.summary-section {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.summary-section h3 {
+  color: #667eea;
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.stat-icon {
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stat-content h4 {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.stat-goal {
+  font-size: 12px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.entries-list {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.entries-list h4 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.entries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.entry-card {
+  background: #f8f9ff;
+  border-left: 4px solid #667eea;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.entry-date {
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.entry-card p {
+  color: #555;
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 16px;
+}

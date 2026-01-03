@@ -154,8 +154,17 @@ const LoginForm = () => {
       {/* Left Section - Form */}
       <div className="login-form-section">
         <div className="form-card">
-          <h1 className="form-title">{isSignUp ? "Join MedSage" : "Sign In to MedSage"}</h1>
-          <p className="form-subtitle">
+          <div className="form-header" style={{ textAlign: 'center' }}>
+            <img src="/logo.png" alt="MedSage Logo" className="form-logo" style={{ width: '60px', height: '60px', marginBottom: '16px', objectFit: 'contain' }} />
+            <h1 className="form-title">{isSignUp ? "Join MedSage" : "Sign In to MedSage"}</h1>
+          </div>
+          <p className="form-subtitle" style={{ 
+            fontSize: '1.1rem', 
+            fontWeight: '600', 
+            color: '#10b981', 
+            marginBottom: '24px',
+            lineHeight: '1.6'
+          }}>
             {isSignUp
               ? "Start your personalized health journey today"
               : "Your Personal AI Doctor"}

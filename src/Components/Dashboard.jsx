@@ -89,9 +89,9 @@ const Dashboard = () => {
       <div className="dashboard-grid">
         {/* Health Score Card */}
         <div className="health-card health-score-card">
-          <div className="card-header">
-            <h2>Health Score</h2>
-            <span className="trend-badge"><FaChartLine /> +5</span>
+          <div className="card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <h2 style={{ margin: 0 }}>Health Score</h2>
+            <span className="trend-badge" style={{ marginLeft: '16px' }}><FaChartLine /> +5</span>
           </div>
           <div className="health-score-circle">
             <svg viewBox="0 0 200 200" className="progress-ring">

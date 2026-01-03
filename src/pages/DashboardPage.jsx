@@ -12,6 +12,11 @@ import "../styles/Dashboard.css";
 
 const DashboardPage = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
+  const [chatInputValue, setChatInputValue] = useState("");
+
+  const handleQuickQuestion = (question) => {
+    setChatInputValue(question);
+  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -30,8 +35,8 @@ const DashboardPage = () => {
       case "ai-assistant":
         return (
           <>
-            <ChatArea />
-            <RightSidebar />
+            <ChatArea chatInputValue={chatInputValue} />
+            <RightSidebar onQuestionClick={handleQuickQuestion} />
           </>
         );
       default:

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
 import '../styles/ChatArea.css';
 
-const ChatArea = () => {
+const ChatArea = ({ chatInputValue = "" }) => {
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -12,7 +12,11 @@ const ChatArea = () => {
       avatar: <img src="/logo.png" alt="MedSage Logo" className="logo-avatar" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />,
     },
   ]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(chatInputValue);
+
+  useEffect(() => {
+    setInputValue(chatInputValue);
+  }, [chatInputValue]);
 
   const handleSendMessage = () => {
     if (inputValue.trim()) {
@@ -70,7 +74,7 @@ const ChatArea = () => {
             )}
             <div>
               <div className="message-content">
-                <p style={{ margin: 0 }}>{message.text}</p>
+                <p>{message.text}</p>
               </div>
               <div className="message-time">{message.time}</div>
             </div>

@@ -84,17 +84,26 @@
   color: #333;
   font-weight: 600;
   font-size: 14px;
+  letter-spacing: 0.3px;
 }
 
 .medication-tracker input,
 .medication-tracker textarea,
 .medication-tracker select {
-  padding: 12px;
+  width: 100%;
+  padding: 10px 12px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.medication-tracker input:hover:not(:disabled),
+.medication-tracker textarea:hover:not(:disabled),
+.medication-tracker select:hover:not(:disabled) {
+  border-color: #c0c0c0;
 }
 
 .medication-tracker input:focus,
@@ -102,7 +111,8 @@
 .medication-tracker select:focus {
   outline: none;
   border-color: #2196F3;
-  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.15);
+  background-color: #f5f9ff;
 }
 
 .medication-tracker textarea {

@@ -74,7 +74,12 @@
 
 .form-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
 }
 
 .lifestyle-logger .form-group {
@@ -88,6 +93,7 @@
   color: #333;
   font-weight: 600;
   font-size: 14px;
+  letter-spacing: 0.3px;
 }
 
 .input-group {
@@ -110,12 +116,20 @@
 .lifestyle-logger input,
 .lifestyle-logger textarea,
 .lifestyle-logger select {
-  padding: 12px;
+  width: 100%;
+  padding: 10px 12px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.lifestyle-logger input:hover:not(:disabled),
+.lifestyle-logger textarea:hover:not(:disabled),
+.lifestyle-logger select:hover:not(:disabled) {
+  border-color: #c0c0c0;
 }
 
 .lifestyle-logger input:focus,
@@ -123,7 +137,8 @@
 .lifestyle-logger select:focus {
   outline: none;
   border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  background-color: #fafbff;
 }
 
 .lifestyle-logger textarea {

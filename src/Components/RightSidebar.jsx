@@ -2,7 +2,7 @@ import React from 'react';
 import { FaSearch, FaStar, FaClock, FaRobot } from 'react-icons/fa';
 import '../styles/RightSidebar.css';
 
-const RightSidebar = () => {
+const RightSidebar = ({ onQuestionClick }) => {
   const quickQuestions = [
     "I've been having headaches lately. What could be causing them?",
     "What foods should I eat to improve my energy levels?",
@@ -29,8 +29,9 @@ const RightSidebar = () => {
   ];
 
   const handleQuestionClick = (question) => {
-    // This could trigger sending the question to the chat
-    console.log('Question clicked:', question);
+    if (onQuestionClick) {
+      onQuestionClick(question);
+    }
   };
 
   return (

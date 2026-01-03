@@ -84,17 +84,20 @@
   color: #333;
   font-weight: 600;
   font-size: 14px;
+  letter-spacing: 0.3px;
 }
 
 .medical-reports input,
 .medical-reports textarea,
 .medical-reports select {
-  padding: 12px;
+  width: 100%;
+  padding: 10px 12px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .medical-reports input[type="file"] {
@@ -138,12 +141,19 @@
   font-size: 14px;
 }
 
+.medical-reports input:hover:not(:disabled),
+.medical-reports textarea:hover:not(:disabled),
+.medical-reports select:hover:not(:disabled) {
+  border-color: #c0c0c0;
+}
+
 .medical-reports input:focus,
 .medical-reports textarea:focus,
 .medical-reports select:focus {
   outline: none;
   border-color: #9C27B0;
-  box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.1);
+  box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.15);
+  background-color: #faf5fb;
 }
 
 .medical-reports textarea {

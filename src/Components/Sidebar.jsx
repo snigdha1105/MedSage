@@ -63,7 +63,7 @@ const Sidebar = ({ onSelectSection, activeSection }) => {
         <div className="user-avatar">{userInitials}</div>
         <div className="user-info">
           <h3>{userName}</h3>
-          <p>Active • Lucknow, Uttar Pradesh</p>
+          <p>20 years • India</p>
         </div>
       </div>
 

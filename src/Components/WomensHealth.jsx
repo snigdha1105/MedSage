@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { FaPills, FaCircle, FaExclamationTriangle, FaBook, FaHourglass, FaCheckCircle, FaFileAlt, FaInbox, FaLightbulb } from 'react-icons/fa';
 import '../styles/WomensHealth.css';
 
 const WomensHealth = () => {
@@ -161,20 +162,20 @@ const WomensHealth = () => {
 
   return (
     <div className="womens-health">
-      <h2>👩‍⚕️ Women's Health Tracker</h2>
+      <h2><FaPills /> Women's Health Tracker</h2>
 
       <div className="tab-navigation">
         <button
           className={`tab-btn ${activeTab === 'period' ? 'active' : ''}`}
           onClick={() => setActiveTab('period')}
         >
-          🔴 Log Period
+          <FaCircle /> Log Period
         </button>
         <button
           className={`tab-btn ${activeTab === 'symptoms' ? 'active' : ''}`}
           onClick={() => setActiveTab('symptoms')}
         >
-          ⚠️ Log Symptoms
+          <FaExclamationTriangle /> Log Symptoms
         </button>
         <button
           className={`tab-btn ${activeTab === 'history' ? 'active' : ''}`}
@@ -183,13 +184,13 @@ const WomensHealth = () => {
             setViewTab('periods');
           }}
         >
-          📖 History ({periods.length + symptoms.length})
+          <FaBook /> History ({periods.length + symptoms.length})
         </button>
       </div>
 
       {activeTab === 'period' && (
         <div className="form-section">
-          <h3>🔴 Log Menstrual Period</h3>
+          <h3><FaCircle /> Log Menstrual Period</h3>
           <form onSubmit={handleLogPeriod} className="form-grid">
             <div className="form-group">
               <label>Start Date *</label>
@@ -219,9 +220,9 @@ const WomensHealth = () => {
                 value={formData.flow}
                 onChange={handleChange}
               >
-                <option value="light">🟡 Light</option>
-                <option value="medium">🔴 Medium</option>
-                <option value="heavy">🔴🔴 Heavy</option>
+                <option value="light">Light</option>
+                <option value="medium">Medium</option>
+                <option value="heavy">Heavy</option>
               </select>
             </div>
 
@@ -237,7 +238,7 @@ const WomensHealth = () => {
             </div>
 
             <button type="submit" disabled={loading} className="submit-btn">
-              {loading ? '⏳ Logging...' : '✅ Log Period'}
+              {loading ? <><FaHourglass /> Logging...</> : <><FaCheckCircle /> Log Period</>}
             </button>
           </form>
         </div>
@@ -245,7 +246,7 @@ const WomensHealth = () => {
 
       {activeTab === 'symptoms' && (
         <div className="form-section">
-          <h3>⚠️ Log Symptoms</h3>
+          <h3><FaExclamationTriangle /> Log Symptoms</h3>
           <form onSubmit={handleLogSymptom} className="form-grid">
             <div className="form-group">
               <label>Symptom Type *</label>
@@ -256,14 +257,14 @@ const WomensHealth = () => {
                 required
               >
                 <option value="">Select symptom</option>
-                <option value="cramps">🤕 Cramps</option>
-                <option value="headache">🤯 Headache</option>
-                <option value="mood_swings">😤 Mood Swings</option>
-                <option value="fatigue">😴 Fatigue</option>
-                <option value="bloating">🫄 Bloating</option>
-                <option value="nausea">🤢 Nausea</option>
-                <option value="back_pain">🔙 Back Pain</option>
-                <option value="other">❓ Other</option>
+                <option value="cramps">Cramps</option>
+                <option value="headache">Headache</option>
+                <option value="mood_swings">Mood Swings</option>
+                <option value="fatigue">Fatigue</option>
+                <option value="bloating">Bloating</option>
+                <option value="nausea">Nausea</option>
+                <option value="back_pain">Back Pain</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
@@ -295,7 +296,7 @@ const WomensHealth = () => {
             </div>
 
             <button type="submit" disabled={loading} className="submit-btn">
-              {loading ? '⏳ Logging...' : '✅ Log Symptom'}
+              {loading ? <><FaHourglass /> Logging...</> : <><FaCheckCircle /> Log Symptom</>}
             </button>
           </form>
         </div>
@@ -303,20 +304,20 @@ const WomensHealth = () => {
 
       {activeTab === 'history' && (
         <div className="history-section">
-          <h3>📖 Your Health History</h3>
+          <h3><FaBook /> Your Health History</h3>
           
           <div className="history-tabs">
             <button
               className={`history-tab-btn ${viewTab === 'periods' ? 'active' : ''}`}
               onClick={() => setViewTab('periods')}
             >
-              🔴 Periods ({periods.length})
+              <FaCircle /> Periods ({periods.length})
             </button>
             <button
               className={`history-tab-btn ${viewTab === 'symptoms' ? 'active' : ''}`}
               onClick={() => setViewTab('symptoms')}
             >
-              ⚠️ Symptoms ({symptoms.length})
+              <FaExclamationTriangle /> Symptoms ({symptoms.length})
             </button>
           </div>
 
@@ -324,14 +325,14 @@ const WomensHealth = () => {
             <div className="data-display">
               {periods.length === 0 ? (
                 <div className="empty-state">
-                  <p>📭 No period logs yet</p>
+                  <p><FaInbox /> No period logs yet</p>
                 </div>
               ) : (
                 <div className="records-grid">
                   {periods.map((period, idx) => (
                     <div key={idx} className="record-card period-card">
                       <div className="record-header">
-                        <h4>🔴 Period Log</h4>
+                        <h4><FaCircle /> Period Log</h4>
                         <span className="record-date">{new Date(period.start_date).toLocaleDateString()}</span>
                       </div>
                       <div className="record-content">
@@ -340,7 +341,7 @@ const WomensHealth = () => {
                         <p><strong>Flow:</strong> {period.flow.charAt(0).toUpperCase() + period.flow.slice(1)}</p>
                         {period.notes && (
                           <div className="record-notes">
-                            <strong>📝 Notes:</strong> {period.notes}
+                            <strong><FaFileAlt /> Notes:</strong> {period.notes}
                           </div>
                         )}
                       </div>
@@ -355,14 +356,14 @@ const WomensHealth = () => {
             <div className="data-display">
               {symptoms.length === 0 ? (
                 <div className="empty-state">
-                  <p>📭 No symptom logs yet</p>
+                  <p><FaInbox /> No symptom logs yet</p>
                 </div>
               ) : (
                 <div className="records-grid">
                   {symptoms.map((symptom, idx) => (
                     <div key={idx} className="record-card symptom-card">
                       <div className="record-header">
-                        <h4>⚠️ {symptom.symptom_type.toUpperCase().replace('_', ' ')}</h4>
+                        <h4><FaExclamationTriangle /> {symptom.symptom_type.toUpperCase().replace('_', ' ')}</h4>
                         <span className="severity-badge">Severity: {symptom.severity}/10</span>
                       </div>
                       <div className="record-content">
@@ -373,7 +374,7 @@ const WomensHealth = () => {
                         </div>
                         {symptom.notes && (
                           <div className="record-notes">
-                            <strong>📝 Notes:</strong> {symptom.notes}
+                            <strong><FaFileAlt /> Notes:</strong> {symptom.notes}
                           </div>
                         )}
                       </div>
@@ -387,7 +388,7 @@ const WomensHealth = () => {
       )}
 
       <div className="info-section">
-        <h3>💡 Tips for Tracking</h3>
+        <h3><FaLightbulb /> Tips for Tracking</h3>
         <ul>
           <li>Log your period start and end dates for better predictions</li>
           <li>Track symptoms to identify patterns</li>

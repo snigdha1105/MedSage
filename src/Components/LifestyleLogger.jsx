@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { FaWalking, FaFileAlt, FaChartBar, FaWater, FaMoon, FaDumbbell, FaCheckCircle, FaHourglass, FaUtensils } from 'react-icons/fa';
 import '../styles/LifestyleLogger.css';
 
 const LifestyleLogger = () => {
@@ -136,30 +137,30 @@ const LifestyleLogger = () => {
 
   return (
     <div className="lifestyle-logger">
-      <h2>🏃 Lifestyle Tracker</h2>
+      <h2><FaWalking /> Lifestyle Tracker</h2>
 
       <div className="tab-navigation">
         <button
           className={`tab-btn ${activeTab === 'log' ? 'active' : ''}`}
           onClick={() => setActiveTab('log')}
         >
-          📝 Log Data
+          <FaFileAlt /> Log Data
         </button>
         <button
           className={`tab-btn ${activeTab === 'summary' ? 'active' : ''}`}
           onClick={() => setActiveTab('summary')}
         >
-          📊 Summary
+          <FaChartBar /> Summary
         </button>
       </div>
 
       {activeTab === 'log' && (
         <div className="log-section">
           <div className="form-section">
-            <h3>📱 Daily Activities</h3>
+            <h3><FaWalking /> Daily Activities</h3>
             <form onSubmit={handleSubmitLifestyle} className="form-grid">
               <div className="form-group">
-                <label>💧 Water Intake (ml)</label>
+                <label><FaWater /> Water Intake (ml)</label>
                 <div className="input-group">
                   <input
                     type="number"
@@ -174,7 +175,7 @@ const LifestyleLogger = () => {
               </div>
 
               <div className="form-group">
-                <label>👟 Steps</label>
+                <label><FaWalking /> Steps</label>
                 <div className="input-group">
                   <input
                     type="number"
@@ -189,7 +190,7 @@ const LifestyleLogger = () => {
               </div>
 
               <div className="form-group">
-                <label>😴 Sleep (hours)</label>
+                <label><FaMoon /> Sleep (hours)</label>
                 <div className="input-group">
                   <input
                     type="number"
@@ -205,7 +206,7 @@ const LifestyleLogger = () => {
               </div>
 
               <div className="form-group">
-                <label>🏋️ Exercise (minutes)</label>
+                <label><FaDumbbell /> Exercise (minutes)</label>
                 <div className="input-group">
                   <input
                     type="number"
@@ -220,13 +221,13 @@ const LifestyleLogger = () => {
               </div>
 
               <button type="submit" disabled={loading} className="submit-btn">
-                {loading ? '⏳ Logging...' : '✅ Log Activities'}
+                {loading ? <><FaHourglass /> Logging...</> : <><FaCheckCircle /> Log Activities</>}
               </button>
             </form>
           </div>
 
           <div className="form-section">
-            <h3>🍽️ Log Meal</h3>
+            <h3><FaUtensils /> Log Meal</h3>
             <form onSubmit={handleSubmitMeal} className="form-grid">
               <div className="form-group">
                 <label>Meal Type</label>
@@ -236,10 +237,10 @@ const LifestyleLogger = () => {
                   onChange={handleChange}
                 >
                   <option value="">Select meal type</option>
-                  <option value="breakfast">🌅 Breakfast</option>
-                  <option value="lunch">🍽️ Lunch</option>
-                  <option value="dinner">🍴 Dinner</option>
-                  <option value="snack">🍿 Snack</option>
+                  <option value="breakfast">Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                  <option value="snack">Snack</option>
                 </select>
               </div>
 
@@ -270,7 +271,7 @@ const LifestyleLogger = () => {
               </div>
 
               <button type="submit" disabled={loading} className="submit-btn">
-                {loading ? '⏳ Logging...' : '✅ Log Meal'}
+                {loading ? <><FaHourglass /> Logging...</> : <><FaCheckCircle /> Log Meal</>}
               </button>
             </form>
           </div>
@@ -279,12 +280,12 @@ const LifestyleLogger = () => {
 
       {activeTab === 'summary' && (
         <div className="summary-section">
-          <h3>📊 Weekly Summary (Last 7 Days)</h3>
+          <h3><FaChartBar /> Weekly Summary (Last 7 Days)</h3>
           
           {summary && summary.entries && summary.entries.length > 0 ? (
             <div className="stats-grid">
               <div className="stat-card">
-                <div className="stat-icon">💧</div>
+                <div className="stat-icon"><FaWater /></div>
                 <div className="stat-content">
                   <h4>Avg Water Intake</h4>
                   <p className="stat-value">{summary.avg_water_intake?.toFixed(0)} ml</p>
@@ -293,7 +294,7 @@ const LifestyleLogger = () => {
               </div>
 
               <div className="stat-card">
-                <div className="stat-icon">👟</div>
+                <div className="stat-icon"><FaWalking /></div>
                 <div className="stat-content">
                   <h4>Avg Steps</h4>
                   <p className="stat-value">{summary.avg_steps?.toFixed(0)}</p>
@@ -302,7 +303,7 @@ const LifestyleLogger = () => {
               </div>
 
               <div className="stat-card">
-                <div className="stat-icon">😴</div>
+                <div className="stat-icon"><FaMoon /></div>
                 <div className="stat-content">
                   <h4>Avg Sleep</h4>
                   <p className="stat-value">{summary.avg_sleep?.toFixed(1)} hrs</p>
@@ -311,7 +312,7 @@ const LifestyleLogger = () => {
               </div>
 
               <div className="stat-card">
-                <div className="stat-icon">🏋️</div>
+                <div className="stat-icon"><FaDumbbell /></div>
                 <div className="stat-content">
                   <h4>Avg Exercise</h4>
                   <p className="stat-value">{summary.avg_exercise?.toFixed(0)} min</p>
@@ -326,16 +327,16 @@ const LifestyleLogger = () => {
           )}
 
           <div className="entries-list">
-            <h4>📋 Recent Entries</h4>
+            <h4><FaFileAlt /> Recent Entries</h4>
             {summary && summary.entries && summary.entries.length > 0 ? (
               <div className="entries-grid">
                 {summary.entries.slice().reverse().map((entry, idx) => (
                   <div key={idx} className="entry-card">
                     <p className="entry-date">{new Date(entry.date).toLocaleDateString()}</p>
-                    {entry.water_intake_ml > 0 && <p>💧 Water: {entry.water_intake_ml} ml</p>}
-                    {entry.steps > 0 && <p>👟 Steps: {entry.steps}</p>}
-                    {entry.sleep_hours > 0 && <p>😴 Sleep: {entry.sleep_hours} hrs</p>}
-                    {entry.exercise_minutes > 0 && <p>🏋️ Exercise: {entry.exercise_minutes} min</p>}
+                    {entry.water_intake_ml > 0 && <p><FaWater /> Water: {entry.water_intake_ml} ml</p>}
+                    {entry.steps > 0 && <p><FaWalking /> Steps: {entry.steps}</p>}
+                    {entry.sleep_hours > 0 && <p><FaMoon /> Sleep: {entry.sleep_hours} hrs</p>}
+                    {entry.exercise_minutes > 0 && <p><FaDumbbell /> Exercise: {entry.exercise_minutes} min</p>}
                   </div>
                 ))}
               </div>

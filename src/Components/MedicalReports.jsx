@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { FaClipboard, FaUpload, FaFolder, FaFileAlt, FaCheckCircle, FaHourglass } from 'react-icons/fa';
 import '../styles/MedicalReports.css';
 
 const MedicalReports = () => {
@@ -160,14 +161,14 @@ const MedicalReports = () => {
 
   return (
     <div className="medical-reports">
-      <h2>📋 Smart Health Records</h2>
+      <h2><FaClipboard /> Smart Health Records</h2>
 
       <div className="tab-navigation">
         <button
           className={`tab-btn ${activeTab === 'upload' ? 'active' : ''}`}
           onClick={() => setActiveTab('upload')}
         >
-          ⬆️ Upload Report
+          <FaUpload /> Upload Report
         </button>
         <button
           className={`tab-btn ${activeTab === 'view' ? 'active' : ''}`}
@@ -176,13 +177,13 @@ const MedicalReports = () => {
             handleFetchReports();
           }}
         >
-          📁 My Reports ({reports.length})
+          <FaFolder /> My Reports ({reports.length})
         </button>
       </div>
 
       {activeTab === 'upload' && (
         <div className="form-section">
-          <h3>📄 Upload Medical Report</h3>
+          <h3><FaFileAlt /> Upload Medical Report</h3>
           <form onSubmit={handleUploadReport} className="form-grid">
             <div className="form-group">
               <label>Report Name *</label>
@@ -205,13 +206,13 @@ const MedicalReports = () => {
                 required
               >
                 <option value="">Select report type</option>
-                <option value="blood_test">🩸 Blood Test</option>
-                <option value="x_ray">🖼️ X-Ray</option>
-                <option value="ultrasound">🔊 Ultrasound</option>
-                <option value="ct_scan">🔬 CT Scan</option>
-                <option value="mri">🧲 MRI</option>
-                <option value="prescription">💊 Prescription</option>
-                <option value="other">📄 Other</option>
+                <option value="blood_test">Blood Test</option>
+                <option value="x_ray">X-Ray</option>
+                <option value="ultrasound">Ultrasound</option>
+                <option value="ct_scan">CT Scan</option>
+                <option value="mri">MRI</option>
+                <option value="prescription">Prescription</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
@@ -226,7 +227,7 @@ const MedicalReports = () => {
               />
               {selectedFile && (
                 <p className="file-info">
-                  ✓ {selectedFile.name} ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
+                  <FaCheckCircle /> {selectedFile.name} ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
                 </p>
               )}
               {fileError && <p className="error-text">{fileError}</p>}
@@ -244,7 +245,7 @@ const MedicalReports = () => {
             </div>
 
             <button type="submit" disabled={loading || !selectedFile} className="submit-btn">
-              {loading ? '⏳ Uploading...' : '✅ Upload Report'}
+              {loading ? <><FaHourglass /> Uploading...</> : <><FaCheckCircle /> Upload Report</>}
             </button>
           </form>
         </div>
@@ -252,7 +253,7 @@ const MedicalReports = () => {
 
       {activeTab === 'view' && (
         <div className="reports-list">
-          <h3>📁 My Medical Reports</h3>
+          <h3><FaFolder /> My Medical Reports</h3>
 
           {reports.length === 0 ? (
             <div className="empty-state">

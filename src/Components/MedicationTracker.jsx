@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { FaPills, FaPlus, FaList, FaSun, FaCheckCircle, FaHourglass, FaCalendar, FaInbox, FaFileAlt } from 'react-icons/fa';
 import '../styles/MedicationTracker.css';
 
 const MedicationTracker = () => {
@@ -107,7 +108,7 @@ const MedicationTracker = () => {
 
       const data = await response.json();
       if (data.success) {
-        toast.success('✅ Dose logged successfully!');
+        toast.success('Dose logged successfully!');
       } else {
         toast.error(data.error || 'Failed to log dose');
       }
@@ -119,14 +120,14 @@ const MedicationTracker = () => {
 
   return (
     <div className="medication-tracker">
-      <h2>💊 Medication Manager</h2>
+      <h2><FaPills /> Medication Manager</h2>
 
       <div className="tab-navigation">
         <button
           className={`tab-btn ${activeTab === 'add' ? 'active' : ''}`}
           onClick={() => setActiveTab('add')}
         >
-          ➕ Add Medication
+          <FaPlus /> Add Medication
         </button>
         <button
           className={`tab-btn ${activeTab === 'view' ? 'active' : ''}`}
@@ -135,7 +136,7 @@ const MedicationTracker = () => {
             fetchMedications();
           }}
         >
-          📋 My Medications ({medications.length})
+          <FaList /> My Medications ({medications.length})
         </button>
       </div>
 
@@ -176,10 +177,10 @@ const MedicationTracker = () => {
                 required
               >
                 <option value="">Select frequency</option>
-                <option value="once_daily">🌅 Once Daily</option>
-                <option value="twice_daily">🌤️ Twice Daily</option>
-                <option value="three_times_daily">☀️ Three Times Daily</option>
-                <option value="as_needed">⚡ As Needed</option>
+                <option value="once_daily">Once Daily</option>
+                <option value="twice_daily">Twice Daily</option>
+                <option value="three_times_daily">Three Times Daily</option>
+                <option value="as_needed">As Needed</option>
               </select>
             </div>
 
@@ -215,7 +216,7 @@ const MedicationTracker = () => {
             </div>
 
             <button type="submit" disabled={loading} className="submit-btn full-width">
-              {loading ? '⏳ Adding...' : '✅ Add Medication'}
+              {loading ? <><FaHourglass /> Adding...</> : <><FaCheckCircle /> Add Medication</>}
             </button>
           </form>
         </div>
@@ -226,7 +227,7 @@ const MedicationTracker = () => {
           <h3>Active Medications</h3>
           {medications.length === 0 ? (
             <div className="empty-state">
-              <p>📭 No medications added yet</p>
+              <p><FaInbox /> No medications added yet</p>
               <small>Start by adding your first medication</small>
             </div>
           ) : (
@@ -239,15 +240,15 @@ const MedicationTracker = () => {
                   </div>
                   
                   <div className="med-info">
-                    <p><strong>📅 Frequency:</strong> {med.frequency.replace('_', ' ').toUpperCase()}</p>
-                    {med.start_date && <p><strong>📍 Start:</strong> {new Date(med.start_date).toLocaleDateString()}</p>}
-                    {med.end_date && <p><strong>🏁 End:</strong> {new Date(med.end_date).toLocaleDateString()}</p>}
-                    {med.notes && <p><strong>📝 Notes:</strong> {med.notes}</p>}
+                    <p><strong><FaSun /> Frequency:</strong> {med.frequency.replace('_', ' ').toUpperCase()}</p>
+                    {med.start_date && <p><strong><FaCalendar /> Start:</strong> {new Date(med.start_date).toLocaleDateString()}</p>}
+                    {med.end_date && <p><strong><FaCheckCircle /> End:</strong> {new Date(med.end_date).toLocaleDateString()}</p>}
+                    {med.notes && <p><strong><FaFileAlt /> Notes:</strong> {med.notes}</p>}
                   </div>
 
                   <div className="med-footer">
                     <p className="doses-count">
-                      ✅ {med.doses_logged?.length || 0} doses logged
+                      <FaCheckCircle /> {med.doses_logged?.length || 0} doses logged
                     </p>
                     <button 
                       onClick={() => handleLogDose(med.id)}

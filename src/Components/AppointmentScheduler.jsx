@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { FaPlus, FaList, FaHourglass, FaCheckCircle, FaInbox, FaCalendar, FaClock, FaBullseye, FaMapMarkerAlt, FaFileAlt } from 'react-icons/fa';
 import '../styles/AppointmentScheduler.css';
 
 const AppointmentScheduler = () => {
@@ -97,14 +98,14 @@ const AppointmentScheduler = () => {
 
   return (
     <div className="appointment-scheduler">
-      <h2>📅 Appointment Scheduler</h2>
+      <h2><FaCalendar style={{ marginRight: '8px' }} /> Appointment Scheduler</h2>
 
       <div className="tab-navigation">
         <button
           className={`tab-btn ${activeTab === 'schedule' ? 'active' : ''}`}
           onClick={() => setActiveTab('schedule')}
         >
-          ➕ Schedule Appointment
+          <FaPlus /> Schedule Appointment
         </button>
         <button
           className={`tab-btn ${activeTab === 'view' ? 'active' : ''}`}
@@ -113,7 +114,7 @@ const AppointmentScheduler = () => {
             fetchAppointments();
           }}
         >
-          📋 My Appointments ({getUpcomingCount()})
+          <FaList /> My Appointments ({getUpcomingCount()})
         </button>
       </div>
 
@@ -164,12 +165,12 @@ const AppointmentScheduler = () => {
                 required
               >
                 <option value="">Select purpose</option>
-                <option value="Checkup">🩺 Checkup</option>
-                <option value="Follow-up">🔄 Follow-up</option>
-                <option value="Consultation">💬 Consultation</option>
-                <option value="Test">🧪 Test/Lab Work</option>
-                <option value="Surgery">🏥 Surgery</option>
-                <option value="Vaccination">💉 Vaccination</option>
+                <option value="Checkup">Checkup</option>
+                <option value="Follow-up">Follow-up</option>
+                <option value="Consultation">Consultation</option>
+                <option value="Test">Test/Lab Work</option>
+                <option value="Surgery">Surgery</option>
+                <option value="Vaccination">Vaccination</option>
               </select>
             </div>
 
@@ -196,7 +197,7 @@ const AppointmentScheduler = () => {
             </div>
 
             <button type="submit" disabled={loading} className="submit-btn full-width">
-              {loading ? '⏳ Scheduling...' : '✅ Schedule Appointment'}
+              {loading ? <><FaHourglass /> Scheduling...</> : <><FaCheckCircle /> Schedule Appointment</>}
             </button>
           </form>
         </div>
@@ -204,11 +205,11 @@ const AppointmentScheduler = () => {
 
       {activeTab === 'view' && (
         <div className="appointments-list">
-          <h3>📋 Your Appointments</h3>
+          <h3><FaList /> Your Appointments</h3>
           
           {appointments.length === 0 ? (
             <div className="empty-state">
-              <p>📭 No appointments scheduled</p>
+              <p><FaInbox /> No appointments scheduled</p>
               <small>Schedule your first appointment now</small>
             </div>
           ) : (
@@ -225,11 +226,11 @@ const AppointmentScheduler = () => {
                     </div>
 
                     <div className="appt-info">
-                      <p><strong>📅 Date:</strong> {new Date(apt.date).toLocaleDateString()}</p>
-                      <p><strong>⏰ Time:</strong> {apt.time}</p>
-                      <p><strong>🎯 Purpose:</strong> {apt.purpose}</p>
-                      {apt.location && <p><strong>📍 Location:</strong> {apt.location}</p>}
-                      {apt.notes && <p><strong>📝 Notes:</strong> {apt.notes}</p>}
+                      <p><strong><FaCalendar /> Date:</strong> {new Date(apt.date).toLocaleDateString()}</p>
+                      <p><strong><FaClock /> Time:</strong> {apt.time}</p>
+                      <p><strong><FaBullseye /> Purpose:</strong> {apt.purpose}</p>
+                      {apt.location && <p><strong><FaMapMarkerAlt /> Location:</strong> {apt.location}</p>}
+                      {apt.notes && <p><strong><FaFileAlt /> Notes:</strong> {apt.notes}</p>}
                     </div>
 
                     <div className="appt-footer">

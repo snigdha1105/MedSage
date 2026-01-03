@@ -16,7 +16,6 @@ const LoginForm = () => {
   const [fullName, setFullName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("male");
-  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -40,12 +39,6 @@ const LoginForm = () => {
 
     if (password.length < 8) {
       toast.error("Password must be at least 8 characters");
-      setLoading(false);
-      return;
-    }
-
-    if (!agreedToTerms) {
-      toast.error("You must agree to the Terms of Service and Privacy Policy");
       setLoading(false);
       return;
     }
@@ -317,7 +310,6 @@ const LoginForm = () => {
                   setFullName("");
                   setAge("");
                   setGender("male");
-                  setAgreedToTerms(false);
                 }}
               >
                 {isSignUp ? "Sign in here" : "Sign up here"}

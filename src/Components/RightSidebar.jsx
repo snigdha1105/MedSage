@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaSearch, FaStar, FaClock, FaRobot } from 'react-icons/fa';
 import '../styles/RightSidebar.css';
 
 const RightSidebar = () => {
@@ -11,17 +12,17 @@ const RightSidebar = () => {
 
   const aiCapabilities = [
     {
-      icon: '🔍',
+      icon: <FaSearch />,
       title: 'Symptom Analysis',
       description: 'Describe symptoms for insights',
     },
     {
-      icon: '⭐',
+      icon: <FaStar />,
       title: 'Personalized Advice',
       description: 'Tailored to your health data',
     },
     {
-      icon: '🕐',
+      icon: <FaClock />,
       title: '24/7 Availability',
       description: 'Always here when you need help',
     },
@@ -37,7 +38,7 @@ const RightSidebar = () => {
       {/* Quick Questions */}
       <div className="quick-questions">
         <h2 className="section-title">
-          <span>✨</span>
+          <FaStar />
           Quick Questions
         </h2>
         <ul className="questions-list">
@@ -56,7 +57,7 @@ const RightSidebar = () => {
 
       {/* AI Capabilities */}
       <div className="ai-capabilities">
-        <h2 className="section-title">🤖 AI Capabilities</h2>
+        <h2 className="section-title"><FaRobot /> AI Capabilities</h2>
         <div className="capabilities-grid">
           {aiCapabilities.map((capability, index) => (
             <div key={index} className="capability-card">

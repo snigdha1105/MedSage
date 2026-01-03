@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaPaperPlane } from 'react-icons/fa';
 import '../styles/ChatArea.css';
 
 const ChatArea = () => {
@@ -8,7 +9,7 @@ const ChatArea = () => {
       type: 'ai',
       text: "Hello! I'm your AI Health Assistant. I can help you with health questions, symptom analysis, and wellness advice. What would you like to know today?",
       time: '11:33',
-      avatar: '💊',
+      avatar: <img src="/logo.png" alt="MedSage Logo" className="logo-avatar" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />,
     },
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -38,7 +39,7 @@ const ChatArea = () => {
           type: 'ai',
           text: randomResponse,
           time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
-          avatar: '💊',
+          avatar: <img src="/logo.png" alt="MedSage Logo" className="logo-avatar" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />,
         }]);
       }, 1000);
     }
@@ -65,7 +66,7 @@ const ChatArea = () => {
         {messages.map((message) => (
           <div key={message.id} className={`message ${message.type}`}>
             {message.type === 'ai' && (
-              <div className="message-avatar">💊</div>
+              <div className="message-avatar">{message.avatar}</div>
             )}
             <div>
               <div className="message-content">
@@ -92,7 +93,7 @@ const ChatArea = () => {
             onClick={handleSendMessage}
             className="send-btn"
           >
-            ➤
+            <FaPaperPlane />
           </button>
         </div>
       </div>

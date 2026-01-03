@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHeartbeat, FaTint, FaWeight, FaDna, FaWalking } from 'react-icons/fa';
+import { FaHeartbeat, FaTint, FaWeight, FaDna, FaWalking, FaChartLine, FaAppleAlt } from 'react-icons/fa';
 import '../styles/Dashboard.css';
 
 const Dashboard = () => {
@@ -62,14 +62,14 @@ const Dashboard = () => {
 
   const insights = [
     {
-      icon: '🍎',
+      icon: <FaAppleAlt />,
       title: 'Increase Omega-3 Intake',
       severity: 'high',
       description: 'Based on your recent blood work, consider adding more fish or supplements.',
       action: 'Add 2 servings of fish this week'
     },
     {
-      icon: '🏃',
+      icon: <FaWalking />,
       title: 'Morning Cardio Routine',
       severity: 'medium',
       description: 'Your heart health metrics look good. Keep up the regular exercise routine.',
@@ -91,7 +91,7 @@ const Dashboard = () => {
         <div className="health-card health-score-card">
           <div className="card-header">
             <h2>Health Score</h2>
-            <span className="trend-badge">📈 +5</span>
+            <span className="trend-badge"><FaChartLine /> +5</span>
           </div>
           <div className="health-score-circle">
             <svg viewBox="0 0 200 200" className="progress-ring">
@@ -180,7 +180,7 @@ const Dashboard = () => {
         <div className="health-card insights-card">
           <div className="insights-header">
             <h2>AI Health Insights</h2>
-            <span className="insight-updated">⏰ Updated 2h ago</span>
+            <span className="insight-updated">Updated 2h ago</span>
           </div>
           <div className="insights-list">
             {insights.map((insight, index) => (
@@ -192,9 +192,9 @@ const Dashboard = () => {
                     {insight.severity}
                   </span>
                   <p>{insight.description}</p>
-                  <a href="#" className="insight-action">
+                  <button type="button" className="insight-action" style={{ background: 'none', border: 'none', color: 'inherit', padding: 0, cursor: 'pointer', textDecoration: 'underline' }}>
                     {insight.action} →
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
